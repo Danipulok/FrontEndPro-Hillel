@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Some nice stuff</title>
+</head>
+<body>
+
+<script>
+    function checkAge(age) {
+        if (age > 18) {
+            return true;
+        } else {
+            return confirm('А родители разрешили?');
+        }
+    }
+
+    let age = prompt('Сколько вам лет?', 18);
+    console.log(age)
+    console.log(typeof age)
+
+    if ( checkAge(age) ) {
+        alert( 'Доступ получен' );
+    } else {
+        alert( 'Доступ закрыт' );
+    }
+
+
+</script>
+
+</body>
+</html>

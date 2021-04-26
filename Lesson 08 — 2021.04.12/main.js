@@ -73,7 +73,13 @@ function sqrt(number){
 
 console.log("\n[myMap]")
 let numbers = [1, 4, 9];
-let roots = myMap(numbers, sqrt)
+
+// Передавая обычную фукнцию
+// let roots = myMap(numbers, sqrt)
+
+// Используя лямбда-функцию
+let roots = myMap(numbers, el => el * el)
+
 console.log(`Old: ${numbers}`)
 console.log(`New: ${roots}`)
 
@@ -86,12 +92,14 @@ function myFiler(array, call){
     return resArray;
 }
 
-function isNumeric(str) {
-    return (typeof +str === "number" && !isNaN(+str));
-}
-
 console.log("\n[myFiler]")
 let numbers_old = [1, 4, 9, "sudo rm -rf /", "Hi here", [1, 2, 3], "456", "this is a number"];
-let numbers_filtered = myFiler(numbers_old, isNumeric)
+
+// Передавая обычную фукнцию
+// let numbers_filtered = myFiler(numbers_old, isNumeric)
+
+// Используя лямбда-функцию
+let numbers_filtered = myFiler(numbers_old, str => {return typeof +str === "number" && !isNaN(+str)})
+
 console.log(`Old: ${numbers_old}`)
 console.log(`New: ${numbers_filtered}`)

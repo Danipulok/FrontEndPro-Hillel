@@ -1,3 +1,5 @@
+/* eslint-disable no-magic-numbers */
+/* eslint-disable no-console */
 // Вам нужно, написать функцию, которая принимает 1 параметр.
 // При первом вызове, она его запоминает, при втором — суммирует переданый параметр с тем, что передали первый раз и тд.
 // Всё это с замыканиями, например:
@@ -14,14 +16,14 @@ function createSum() {
     let counter = 0;
     return function innerFunc (number) {
         return counter += number;
-    }
+    };
 }
 
-const sum = createSum()
+const sum = createSum();
 
-console.log(sum(3))     // 3
-console.log(sum(5))     // 8
-console.log(sum(20))    // 28
+console.log(sum(3)); // 3
+console.log(sum(5)); // 8
+console.log(sum(20)); // 28
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function createCounter(initVal = 0, stepVal = 1) {
@@ -38,16 +40,16 @@ function createCounter(initVal = 0, stepVal = 1) {
             return counter;
         }
         return counter += stepVal;
-    }
+    };
 }
 
 const fbLikes = createCounter(1, 2);
 
-console.log('fblikes: ', fbLikes());    // 1
-console.log('fblikes: ', fbLikes());    // 2
-console.log('fblikes: ', fbLikes());    // 3
+console.log('fblikes: ', fbLikes()); // 1
+console.log('fblikes: ', fbLikes()); // 2
+console.log('fblikes: ', fbLikes()); // 3
 
-console.log('fblikes: ', fbLikes(true));    // 1
-console.log('fblikes: ', fbLikes());    // 1
-console.log('fblikes: ', fbLikes());    // 3
-console.log('fblikes: ', fbLikes());    // 4
+console.log('fblikes: ', fbLikes(true)); // 1
+console.log('fblikes: ', fbLikes()); // 1
+console.log('fblikes: ', fbLikes()); // 3
+console.log('fblikes: ', fbLikes()); // 4

@@ -28,7 +28,7 @@ function getResultAll(operation){
     }
 
     for (let i = 1; i < arguments.length; i++){
-        if(!(typeof +arguments[i] === "number"))
+        if(!(typeof +arguments[i] === "number" && !isNaN(+arguments[i])))
             throw "You passed wrong type of arguments. Only `numbers` and numbers as `string` are acceptable.";
     }
 
@@ -44,22 +44,14 @@ function getResultAll(operation){
     //     res = eval(`${res} ${operation} ${arguments[i]}`)
     // }
 
-    // Second option
-    // for (let i = 2; i < arguments.length; i++){
-    //     if(operation === "+") res += arguments[i];
-    //     else if(operation === "-") res -= arguments[i];
-    //     else if(operation === "*") res *= arguments[i];
-    //     else if(operation === "/") res /= arguments[i];
-    // }
-
-    // Third option - when second check is unnecessary.
+    // Second option - when second check is unnecessary.
     for (let i = 2; i < arguments.length; i++){
-        if(!(typeof +arguments[i] === "number")) continue;
+        if(!(typeof +arguments[i] === "number" && !isNaN(+arguments[i]))) continue;
 
-        if(operation === "+") res += arguments[i];
-        else if(operation === "-") res -= arguments[i];
-        else if(operation === "*") res *= arguments[i];
-        else if(operation === "/") res /= arguments[i];
+        if(operation === "+") res += +arguments[i];
+        else if(operation === "-") res -= +arguments[i];
+        else if(operation === "*") res *= +arguments[i];
+        else if(operation === "/") res /= +arguments[i];
     }
 
     return res;

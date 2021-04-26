@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 // Вам нужно создать список задач, который умеет:
 //
 //     • добавлять новые задачи и проверять их уникальность. У каждой задачи есть статус (boolean), название и текст.
@@ -7,9 +8,9 @@
 //
 // Вам нужно оформить это, как объект с методами
 
-TODOList = {
+const TODOList = {
     tasks: {},
-    addTask (taskName, taskDescription = "") {
+    addTask (taskName, taskDescription = '') {
         if(taskName in this.tasks) return false;
         this.tasks[taskName] = {
             taskDescription: taskDescription,
@@ -28,31 +29,31 @@ TODOList = {
         return true;
     },
     displayFullInfo () {
-        let resSets = [];
+        const resSets = [];
         for (const [taskName, task] of Object.entries(this.tasks)) {
-            let taskInfo = `• ${taskName}: ${task.taskDescription} | ${task.taskDone}`;
+            const taskInfo = `• ${taskName}: ${task.taskDescription} | ${task.taskDone}`;
             resSets.push(taskInfo);
         }
-        let resStr = resSets.join("\n");
+        const resStr = resSets.join('\n');
         console.log(resStr);
         return resStr;
     }
-}
+};
 
-todo = TODOList
+const todo = TODOList;
 
-console.log("[Task added]")
-todo.addTask("Hillel", "Finish Hillel's Lesson 9")
-todo.displayFullInfo()
+console.log('[Task added]');
+todo.addTask('Hillel', 'Finish Hillel\'s Lesson 9');
+todo.displayFullInfo();
 
-console.log("\n[Task edited]")
-todo.editTask("Hillel", "Finish Hillel's Lesson 9 until 19:00", true)
-todo.displayFullInfo()
+console.log('\n[Task edited]');
+todo.editTask('Hillel', 'Finish Hillel\'s Lesson 9 until 19:00', true);
+todo.displayFullInfo();
 
-console.log("\n[Task added]")
-todo.addTask("Univer", "Do DB homework")
-todo.displayFullInfo()
+console.log('\n[Task added]');
+todo.addTask('Univer', 'Do DB homework');
+todo.displayFullInfo();
 
-console.log("\n[Task delete]")
-todo.deleteTask("Hillel")
-todo.displayFullInfo()
+console.log('\n[Task delete]');
+todo.deleteTask('Hillel');
+todo.displayFullInfo();

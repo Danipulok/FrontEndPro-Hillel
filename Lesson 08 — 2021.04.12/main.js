@@ -23,7 +23,9 @@ function camelize(str){
         if(str[i] === "-") {
             resStr += str[++i].toUpperCase();
         }
-        else resStr += str[i];
+        else {
+            resStr += str[i];
+        }
     }
 
     return resStr;
@@ -31,8 +33,9 @@ function camelize(str){
 
 function camelizeArray(array){
     let resArray = []
-    for(let i = 0; i < array.length; i++)
+    for(let i = 0; i < array.length; i++) {
         resArray[i] = camelize(array[i])
+    }
     return resArray
 }
 
@@ -60,10 +63,11 @@ console.log(`Equals expected result: ${isEqual}; \nIs array: ${isArray}`)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // myMap
-function myMap(array, call){
+function myMap(array, callback){
     let resArray = [];
-    for(let i = 0; i < array.length; i++)
-        resArray[i] = call(array[i])
+    for(let i = 0; i < array.length; i++) {
+        resArray[i] = callback(array[i])
+    }
     return resArray
 }
 
@@ -85,10 +89,13 @@ console.log(`New: ${roots}`)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // myFiler
-function myFiler(array, call){
+function myFiler(array, callback){
     let resArray = [];
-    for(let i = 0; i < array.length; i++)
-        if(call(array[i])) resArray[resArray.length] = array[i]
+    for(let i = 0; i < array.length; i++) {
+        if (callback(array[i])) {
+            resArray[resArray.length] = array[i]
+        }
+    }
     return resArray;
 }
 

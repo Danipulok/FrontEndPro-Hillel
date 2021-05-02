@@ -1,12 +1,17 @@
+/* eslint-disable no-console */
+/* eslint-disable no-param-reassign */
+/* eslint-disable prefer-const */
+/* eslint-disable no-magic-numbers */
+
 function countModOrder(number) {
-    let mod = number % 10;
+    const mod = number % 10;
     let order = 0;
 
     while (number > 9) {
-        number = (number - number % 10) / 10
+        number = (number - number % 10) / 10;
         order += 1;
     }
-    return [mod, order]
+    return [mod, order];
 }
 
 function reverseNumber(numberToReverse) {
@@ -15,7 +20,7 @@ function reverseNumber(numberToReverse) {
     while(numberToReverse > 0) {
         let mod, order;
         [mod, order] = countModOrder(numberToReverse);
-        numberToReverse = (numberToReverse - numberToReverse % 10) / 10
+        numberToReverse = (numberToReverse - numberToReverse % 10) / 10;
         resultNumber += (mod * 10 ** order);
     }
     return resultNumber;
@@ -37,8 +42,8 @@ function makePalindromeFromNumber(number) {
     return {
         result: number,
         steps: steps,
-    }
+    };
 }
 
-let res = makePalindromeFromNumber(178)
-console.log(res, "\n")
+const res = makePalindromeFromNumber(178);
+console.log(res, '\n');

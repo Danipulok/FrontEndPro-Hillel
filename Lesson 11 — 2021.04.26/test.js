@@ -5,6 +5,13 @@ let user = {
     sayHi2: (...args) =>        console.log(`Привет, ${this.firstName}! ${args}`)
 };
 
+console.log("\WEKADJLKWAJDLKWAJDKOLAW")
+user.sayHi2()
+
+this.firstName = "WADKAJWL"
+console.log("\WEKADJLKWAJDLKWAJDKOLAW")
+user.sayHi2()
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Wrapper function example
 const FUCKYOUBITCH1 = () => user.sayHi1()
